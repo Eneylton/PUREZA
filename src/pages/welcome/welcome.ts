@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, IonicPage, Slides } from 'ionic-angular';
 
 @IonicPage({})
 @Component({
@@ -7,6 +7,7 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
+  @ViewChild('slider') slider: Slides;
 
   splash = true;
   tabBarElement:any;
@@ -23,6 +24,36 @@ export class WelcomePage {
       this.splash = false;
       this.tabBarElement.style.display = 'flex';
     }, 4000);
+}
+
+
+
+  slideIndex = 0;
+  slides = [
+    {
+      title: 'Dream\'s Adventure',
+      imageUrl: '../../assets/imgs/12.png',
+      description: 'Take a look at our amazing options',
+    },
+    {
+      title: 'For the Weekend',
+      imageUrl: '../../assets/imgs/08.png',
+      description: 'Take a look at our amazing options',
+    }
+  ];
+
+
+  onSlideChanged() {
+    this.slideIndex = this.slider.getActiveIndex();
+    console.log('Slide changed! Current index is', this.slideIndex);
+  }
+
+  goToApp() {
+    console.log('Go to App clicked');
+  }
+
+  skip() {
+    console.log('Skip clicked');
 }
 
 }
