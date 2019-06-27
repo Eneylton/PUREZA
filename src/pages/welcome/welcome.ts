@@ -48,12 +48,10 @@ export class WelcomePage {
     console.log('Slide changed! Current index is', this.slideIndex);
   }
 
-  goToApp() {
-    console.log('Go to App clicked');
-  }
+ 
 
-  skip() {
-    console.log('Skip clicked');
+  openCadastro() {
+  this.navCtrl.setRoot('CadastroPage');
 }
 
 }
